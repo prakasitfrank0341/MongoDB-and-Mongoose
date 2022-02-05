@@ -11,22 +11,20 @@ var personSchema = new Schema ({
   favoriteFoods: [String]
 });
 
-var Person = mongoose.model('Person', personSchema);
+let Person = mongoose.model('Person', personSchema);
 
-let frank = function(done) {
-  return new Person({
-    name: "Frank Rin",
-    age: 23,
-    favoriteFoods: ["Noodle", "Coffee"]
-  });
-  if(error) return done(error);
-  done(null, result);
-};
-
-let Person;
 
 const createAndSavePerson = (done) => {
-  done(null /*, data*/);
+  let jaylorx = new Person({name: 'Jaylorx', age: 23, favoriteFoods: ['Cake']})
+
+  jaylorx.save((error, data) => {
+    if(error) {
+      console.log(error)
+    }else {
+      done(error, data)
+    }
+  })
+  //done(null /*, data*/);
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
