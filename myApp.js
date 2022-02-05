@@ -19,16 +19,21 @@ const createAndSavePerson = (done) => {
 
   jaylorx.save((error, data) => {
     if(error) {
-      console.log(error)
+      console.log(error);
     }else {
-      done(null, data)
+      done(null, data);
     }
-  })
-  //done(null /*, data*/);
+  });
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
-  done(null /*, data*/);
+  Person.create(arrayOfPeople, (error, people) => {
+    if(error) {
+      return console.log(error);
+    }else {
+      done(null, people);
+    }
+  });
 };
 
 const findPeopleByName = (personName, done) => {
