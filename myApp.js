@@ -99,7 +99,10 @@ let Person = mongoose.model('Person', personSchema);
 
 const removeManyPeople = (done) => {
   const nameToRemove = "Mary";
-
+  Person.remove({name: nameToRemove}, (error, peoplesRemoved) => {
+    if(error) return console.log(error);
+    done(null, peoplesRemoved);
+  });
   done(null /*, data*/);
 };
 
