@@ -44,13 +44,13 @@ const createManyPeople = (arrayOfPeople, done) => {
 };
 
 const findPeopleByName = (personName, done) => {
-  // Person.find({name: personName}, (error, arrayResults) => {
-  //   if(error) {
-  //         return console.log(error);
-  //       }else {
-  //         done(null, createPoeple);
-  //       }
-  // });
+  Person.find({name: personName}, (error, arrayResults) => {
+    if(error) {
+          return console.log(error);
+        }else {
+          done(null, arrayResults);
+        }
+  });
   done(null /*, data*/);
 };
 
